@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="row g-4 mt-2">
+    <div class="col-lg-8">
+        <div class="glass-card p-4 rounded-4 text-light">
+            <h2 class="mb-3">Welcome back</h2>
+            <p class="text-muted">Your security posture is strong and your sessions are being monitored.</p>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="stat-box p-3 rounded-3">
+                        <h4>{{ security_score }}%</h4>
+                        <p>Security Score</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box p-3 rounded-3">
+                        <h4>{{ current_user.last_login or 'N/A' }}</h4>
+                        <p>Last Login</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box p-3 rounded-3">
+                        <h4>{{ current_user.failed_attempts }}</h4>
+                        <p>Failed Attempts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="glass-card p-4 rounded-4 text-light">
+            <h4>Recent Activity</h4>
+            <ul class="list-unstyled mt-3">
+                {% for log in recent_activity %}
+                <li class="mb-2"><i class="bi bi-shield-check text-success me-2"></i>{{ log.activity }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row g-4 mt-2">
+    <div class="col-lg-6">
+        <div class="glass-card p-4 rounded-4 text-light">
+            <h4>Login History</h4>
+            <ul class="list-unstyled mt-3">
+                {% for log in login_history %}
+                <li class="mb-2"><i class="bi bi-clock-history me-2"></i>{{ log.login_time }} - {{ log.status }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="glass-card p-4 rounded-4 text-light">
+            <h4>Quick Actions</h4>
+            <div class="d-grid gap-2 mt-3">
+                <a href="{{ url_for('auth.profile') }}" class="btn btn-outline-cyber">Profile</a>
+                <a href="{{ url_for('auth.settings') }}" class="btn btn-outline-cyber">Security Settings</a>
+                <a href="{{ url_for('auth.logout_everywhere') }}" class="btn btn-outline-cyber">Logout Everywhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

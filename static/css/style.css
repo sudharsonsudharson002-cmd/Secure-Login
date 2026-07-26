@@ -1,0 +1,99 @@
+:root {
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top left, #07161b 0%, #02050b 60%, #000000 100%);
+    color: #f5f7fa;
+    overflow-x: hidden;
+}
+
+.background-glow {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(0, 255, 153, 0.14), transparent 25%), radial-gradient(circle at 80% 0%, rgba(0, 120, 255, 0.18), transparent 30%);
+    pointer-events: none;
+}
+
+.matrix-layer, .particles-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+.glass-card {
+    background: rgba(7, 14, 24, 0.76);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 255, 153, 0.25);
+    box-shadow: 0 0 35px rgba(0, 255, 153, 0.12);
+}
+
+.cyber-input,
+.form-control {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(0, 255, 153, 0.25);
+    color: #eff8ff !important;
+    caret-color: #00ffad;
+}
+
+.cyber-input::placeholder,
+.form-control::placeholder {
+    color: rgba(239, 248, 255, 0.55) !important;
+}
+
+.cyber-input:focus,
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #00ffa3;
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 153, 0.25);
+}
+
+.btn-cyber {
+    background: linear-gradient(135deg, #00f0a4, #1d7cff);
+    color: white;
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-cyber:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 243, 153, 0.25);
+    color: white;
+}
+
+.btn-outline-cyber {
+    border: 1px solid rgba(0, 255, 153, 0.5);
+    color: #8cf8ce;
+    background: transparent;
+}
+
+.btn-outline-cyber:hover {
+    background: rgba(0, 255, 153, 0.15);
+    color: white;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-section {
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+}
+
+.text-muted {
+    color: #9bacb9 !important;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding: 2rem 1rem;
+    }
+}

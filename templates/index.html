@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Secure Login System{% endblock %}
+{% block content %}
+<div class="hero-section glass-card p-5 rounded-4 text-light">
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <h1 class="display-4 fw-bold mb-3">Secure Access for Modern Teams</h1>
+            <p class="lead text-muted">Defend digital identities with a polished, enterprise-ready login experience built for security, compliance, and trust.</p>
+            <div class="d-flex gap-3 flex-wrap mt-4">
+                <a href="{{ url_for('auth.register') }}" class="btn btn-cyber">Create Account</a>
+                <a href="{{ url_for('auth.login') }}" class="btn btn-outline-cyber">Sign In</a>
+            </div>
+            <div class="mt-5 row g-3">
+                <div class="col-md-4">
+                    <div class="stat-box p-3 rounded-3">
+                        <h3 class="counter" data-target="99.9">0</h3>
+                        <p>Uptime</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box p-3 rounded-3">
+                        <h3 class="counter" data-target="256">0</h3>
+                        <p>Bit Protection</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-box p-3 rounded-3">
+                        <h3 class="counter" data-target="24">0</h3>
+                        <p>7 Monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="glass-card p-4 rounded-4">
+                <h3 class="mb-3">Security Benefits</h3>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-shield-lock-fill me-2 text-success"></i> Password hashing with bcrypt</li>
+                    <li><i class="bi bi-router me-2 text-success"></i> Anti-brute force protection</li>
+                    <li><i class="bi bi-eye-slash me-2 text-success"></i> Secure session handling</li>
+                    <li><i class="bi bi-file-earmark-lock me-2 text-success"></i> Audit logging and threat awareness</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

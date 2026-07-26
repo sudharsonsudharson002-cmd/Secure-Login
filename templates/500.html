@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Server Error{% endblock %}
+{% block content %}
+<div class="text-center py-5 text-light">
+    <h1 class="display-1 fw-bold">500</h1>
+    <p class="lead">An unexpected server error occurred. Please try again shortly.</p>
+    <a href="{{ url_for('auth.index') }}" class="btn btn-cyber">Return Home</a>
+</div>
+{% endblock %}

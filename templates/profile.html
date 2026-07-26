@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="row g-4 mt-2">
+    <div class="col-lg-6">
+        <div class="glass-card p-4 rounded-4 text-light">
+            <h3>Profile Information</h3>
+            <form method="post" enctype="multipart/form-data" novalidate>
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.username.label(class="form-label") }}
+                    {{ form.username(class="form-control cyber-input") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control cyber-input") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.profile_picture.label(class="form-label") }}
+                    {{ form.profile_picture(class="form-control cyber-input") }}
+                </div>
+                <button type="submit" class="btn btn-cyber">Update Profile</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="glass-card p-4 rounded-4 text-light">
+            <h3>Change Password</h3>
+            <form method="post" action="{{ url_for('auth.change_password') }}" novalidate>
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    <label class="form-label">Current Password</label>
+                    <input type="password" name="current_password" class="form-control cyber-input">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">New Password</label>
+                    <input type="password" name="new_password" class="form-control cyber-input">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" name="confirm_password" class="form-control cyber-input">
+                </div>
+                <button type="submit" class="btn btn-outline-cyber">Change Password</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
